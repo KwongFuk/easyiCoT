@@ -1,11 +1,10 @@
 # Install the packages in R1-V .
-cd R1_V/src/r1-v 
+cd R1-V/src/r1-v 
 pip install -e ".[dev]"
 pip install wandb==0.18.3
 pip install tensorboardx
 pip install qwen_vl_utils 
 pip install flash-attn --no-build-isolation
-pip install math_verify
 
 # Install transformers from source
 cd ../../..
@@ -27,4 +26,5 @@ cp "$SRC_DIR/modeling_qwen2_vl.py" "$TARGET_BASE/models/qwen2_vl/modeling_qwen2_
 # install llama-factory
 cd LLaMA-Factory
 pip install -e ".[metrics]" --no-build-isolation
+pip install trl==0.14.0
 cd ..

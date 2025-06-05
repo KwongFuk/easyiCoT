@@ -3,7 +3,7 @@
 Official repository for the paper "[MINT-CoT: Enabling Interleaved Visual Tokens in
 Mathematical Chain-of-Thought Reasoning]()".
 
-[[📖 Paper]()] [[🤗 Dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset)]
+[[📖 Paper]()] [[🤗 Dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset)] [[🤗 Model](https://huggingface.co/xy06/MINT-CoT-7B)]
 
 ## 💥 News
 
@@ -14,20 +14,23 @@ Mathematical Chain-of-Thought Reasoning]()".
 Chain-of-Thought (CoT) has widely enhanced mathematical reasoning in Large Language Models (LLMs), but it still remains challenging for extending it to multi modal domains.  Existing works either adopt a similar textual reasoning for image input, or seek to interleave visual signals into mathematical CoT. However, they face three key limitations for math problem-solving: reliance on coarse-grained box-shaped image regions, limited perception of vision encoders on math content, and dependence on external capabilities for visual modification. 
 
 <p align="center">
-    <img src="figs/fig1.png" width="70%"> <br>
+    <img src="figs/fig1.png" width="80%"> <br>
 </p>
+
 
 In this project, we propose **MINT-CoT**, introducing **M**athematical **IN**terleaved **T**okens for **C**hain-**o**f-**T**hought visual reasoning.  MINT-CoT adaptively interleaves relevant visual tokens into textual reasoning steps via an Interleave Token, which dynamically selects visual regions of any shapes within math figures.
 
 <p align="center">
-    <img src="figs/fig2.png" width="70%"> <br>
-</p>
+    <img src="figs/fig2.png" width="80%"> <br>
+</p
+
 
 To empower this capability, we construct the MINT-CoT dataset, containing 54K mathematical problems aligning each reasoning step with visual regions at the token level, accompanied by a rigorous data generation pipeline.
 
 <p align="center">
     <img src="figs/fig3.png" width="80%"> <br>
 </p>
+
 
 We further present a three-stage MINT-CoT training strategy, progressively combining text-only CoT SFT, interleaved CoT SFT, and interleaved CoT RL, which derives our MINT-CoT-7B model. 
 
@@ -63,10 +66,11 @@ bash src/setup.sh
 
 ### Dataset Preparation
 
-Download our dataset:
+Download our [dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset) and unzip `images.zip`:
 
 ```bash
 huggingface-cli repo download xy06/MINT-CoT-Dataset --local-dir ./data
+unzip ./data/images.zip -d ./data/
 ```
 
 

@@ -12,7 +12,7 @@ CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" torchrun --nproc_per_node="8" \
     src/open_r1/grpo.py \
     --output_dir ../../../saves/grpo_qwen2vl_interleaved \
     --model_name_or_path ../../../saves/qwen2vl_7b_full_sft_interleaved/full/sft_epoch6_lr1e-6_warm01 \
-    --dataset_name /data_filtered \
+    --dataset_name data \
     --deepspeed local_scripts/zero3_offload.json \
     --max_prompt_length 512 \
     --max_completion_length 512 \

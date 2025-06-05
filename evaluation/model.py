@@ -127,11 +127,11 @@ class Qwen2VLChat(Qwen2VLPromptMixin, BaseModel):
         system_prompt: str | None = None,
         verbose: bool = False,
         use_cache: bool = True,
-        interleave_inf: bool = True,
+        interleave_inf: bool = True, # whether to use interleave inference
         mulberry: bool = True,
         step_only: bool = False,
-        rationale: bool = True,
-        predict_threshold: float = 0.7,
+        rationale: bool = True, # prompt template
+        predict_threshold: float = 0.7, # threshold for interleave visual tokens
     ):
         super().__init__(use_custom_prompt=use_custom_prompt)
         self.min_pixels = min_pixels
