@@ -3,11 +3,13 @@
 Official repository for the paper "[MINT-CoT: Enabling Interleaved Visual Tokens in
 Mathematical Chain-of-Thought Reasoning]()".
 
-[[📖 Paper]()] [[🤗 Dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset)] [[🤗 Model](https://huggingface.co/xy06/MINT-CoT-7B)]
+[[📖 Paper](https://arxiv.org/abs/2506.05331)] [[🤗 Dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset)] [[🤗 Model](https://huggingface.co/xy06/MINT-CoT-7B)]
 
 ## 💥 News
 
+- **[2025.06.06]** We release the [arxiv paper](https://arxiv.org/abs/2506.05331) and the code. 🔥
 
+  
 
 ## 👀 About MINT-CoT
 
