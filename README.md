@@ -122,3 +122,17 @@ CUDA_VISIBLE_DEVICES=0 python run.py --data MathVista_MINI --model Qwen2-VL-7B-I
 
 We would like to thank [R1-V](https://github.com/Deep-Agent/R1-V), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and [Mulberry](https://github.com/HJYao00/Mulberry), upon which our repo is built.
 
+
+## ✅ Citation
+
+If you find **MINT-CoT** useful for your research and applications, please kindly cite using this BibTeX:
+
+```latex
+@article{chen2025mint,
+  title={MINT-CoT: Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning},
+  author={Chen, Xinyan and Zhang, Renrui and Jiang, Dongzhi and Zhou, Aojun and Yan, Shilin and Lin, Weifeng and Li, Hongsheng},
+  journal={arXiv preprint arXiv:2506.05331},
+  year={2025}
+}
+```
+
