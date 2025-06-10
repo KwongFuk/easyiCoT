@@ -1,21 +1,21 @@
 ### model
-model_name_or_path: saves/qwen2vl_7b_full_sft_text_only/full/sft_epoch2_lr5e-6_warm003
+model_name_or_path: ../saves/qwen2vl_7b_full_sft_text_only/full/sft_epoch2_lr5e-6_warm003
 
 ### method
 stage: sft
 do_train: true
 finetuning_type: full
-deepspeed: ./LLaMA-Factory/examples/deepspeed/ds_z2_config.json
+deepspeed: examples/deepspeed/ds_z2_config.json
 
 ### dataset
-dataset: mulberry_55k_interleave_ra
+dataset: mulberry_54k_interleave_ra
 template: qwen2_vl
 cutoff_len: 32768
 overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen2vl_7b_full_sft_interleaved/full/sft_epoch6_lr1e-6_warm01 
+output_dir: ../saves/qwen2vl_7b_full_sft_interleaved/full/sft_epoch6_lr1e-6_warm01 
 logging_steps: 10
 save_steps: 9999
 save_only_model: true

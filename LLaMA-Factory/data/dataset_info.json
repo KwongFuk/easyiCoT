@@ -1,6 +1,6 @@
 {
   "mulberry_54k_interleave_ra": {
-    "file_name": "data/MINT-CoT_interleave_sft_54k.json",
+    "file_name": "MINT-CoT_interleave_sft_54k.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "messages_interleave_ra",
@@ -14,7 +14,7 @@
     }
   },
   "mulberry_54k": {
-    "file_name": "data/MINT-CoT_interleave_sft_54k.json",
+    "file_name": "MINT-CoT_interleave_sft_54k.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "messages",

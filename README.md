@@ -1,7 +1,7 @@
 # **🔥MINT-CoT:** Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning
 
 Official repository for the paper "[MINT-CoT: Enabling Interleaved Visual Tokens in
-Mathematical Chain-of-Thought Reasoning]()".
+Mathematical Chain-of-Thought Reasoning](https://arxiv.org/abs/2506.05331)".
 
 [[📖 Paper](https://arxiv.org/abs/2506.05331)] [[🤗 Dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset)] [[🤗 Model](https://huggingface.co/xy06/MINT-CoT-7B)]
 
@@ -68,11 +68,12 @@ bash src/setup.sh
 
 ### Dataset Preparation
 
-Download our [dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset) and unzip `images.zip`:
+Download our [dataset](https://huggingface.co/datasets/xy06/MINT-CoT-Dataset), and unzip `images.zip`:
 
 ```bash
 huggingface-cli repo download xy06/MINT-CoT-Dataset --local-dir ./data
-unzip ./data/images.zip -d ./data/
+mv ./data/MINT-CoT_interleave_sft_54k.json ./LLaMA-Factory/data 
+unzip ./data/images.zip -d ./LLaMA-Factory/data/
 ```
 
 
@@ -82,19 +83,21 @@ unzip ./data/images.zip -d ./data/
 #### Stage 1: Text-only CoT SFT.
 
 ```bash
-DISABLE_VERSION_CHECK=1 llamafactory-cli train src/train/qwen2vl_7b_full_sft_text_only.yaml
+cd LLaMA-Factory
+DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/train_full/mint-cot/qwen2vl_7b_full_sft_text_only.yaml
 ```
 
 #### Stage 2: Interleaved CoT SFT.
 
 ```bash
-DISABLE_VERSION_CHECK=1 llamafactory-cli train src/train/qwen2vl_7b_full_sft_interleaved.yaml
+DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/train_full/mint-cot/qwen2vl_7b_full_sft_interleaved.yaml
 ```
 
 #### Stage 3: Interleaved CoT RL.
 
 ```bash
-bash run_grpo_qwen2vl_interleaved.sh
+cd ..
+bash src/train/run_grpo_qwen2vl_interleaved.sh
 ```
 
 

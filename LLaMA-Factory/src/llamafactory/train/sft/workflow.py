@@ -45,7 +45,6 @@ def run_sft(
     generating_args: "GeneratingArguments",
     callbacks: Optional[List["TrainerCallback"]] = None,
 ):
-    # TO DO: edit the additional special token here
     tokenizer_module = load_tokenizer(model_args)
     tokenizer = tokenizer_module["tokenizer"]
     template = get_template_and_fix_tokenizer(tokenizer, data_args)
@@ -53,14 +52,18 @@ def run_sft(
     model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train)
 
     # interleave:
-    from torch import nn
-    nn.init.xavier_uniform_(model.interleave_token)
-    nn.init.constant_(model.logit_scale, model.logit_scale_init_value/model.grad_scaler)
-    for n, p in model.named_parameters():
-        if 'interleave_token' in n or 's_projection' in n or 'vis_projection' in n or 'logit_scale' in n:
-            p.requires_grad = True
-        # else:
-        #     p.requires_grad = False
+    do_interleave = "interleave" in data_args.dataset[0]
+    if do_interleave:
+        from torch import nn
+        nn.init.xavier_uniform_(model.interleave_token)
+        nn.init.constant_(model.logit_scale, model.logit_scale_init_value/model.grad_scaler)
+        for n, p in model.named_parameters():
+            if 'interleave_token' in n or 's_projection' in n or 'vis_projection' in n or 'logit_scale' in n:
+                p.requires_grad = True
+    else:
+        for n, p in model.named_parameters():
+            if 'interleave_token' in n or 's_projection' in n or 'vis_projection' in n or 'logit_scale' in n:
+                p.requires_grad = False
 
     if getattr(model, "is_quantized", False) and not training_args.do_train:
         setattr(model, "_hf_peft_config_loaded", True)  # hack here: make model compatible with prediction

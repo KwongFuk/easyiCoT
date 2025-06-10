@@ -5,10 +5,10 @@ model_name_or_path: Qwen/Qwen2-VL-7B-Instruct
 stage: sft
 do_train: true
 finetuning_type: full
-deepspeed: ./LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: mulberry_rationale_55k
+dataset: mulberry_54k
 template: qwen2_vl
 cutoff_len: 32768
 overwrite_cache: true
