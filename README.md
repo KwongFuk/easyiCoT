@@ -104,17 +104,24 @@ bash src/train/run_grpo_qwen2vl_interleaved.sh
 
 ### 💫 Evaluation
 
-We use [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) to evaluate the MINT-CoT models on different benchmarks. We provide the evaluation instructions and key code here.
+We use [VLMEvalKit](https://github.com/open-compass/VLMEvalKit/tree/v0.2) to evaluate the MINT-CoT models on different benchmarks. We provide the evaluation instructions and key code here.
 
-First, you need to install VLMEvalKit according to the [official instructions](https://github.com/open-compass/VLMEvalKit/blob/main/docs/en/Quickstart.md).
+First, you need to install VLMEvalKit according to the [official instructions](https://github.com/open-compass/VLMEvalKit/blob/v0.2/docs/en/Quickstart.md).
 
-Next, replace the `model.py` and `prompt.py` files in `VLMEvalKit-main/vlmeval/vlm/qwen2_vl/` with the files we provide [here](https://github.com/xinyan-cxy/MINT-CoT/tree/main/evaluation).
+Next, replace the `model.py` and `prompt.py` files in `VLMEvalKit-main/vlmeval/vlm/qwen2_vl/` with the files we provide [here](https://github.com/xinyan-cxy/MINT-CoT/tree/main/evaluation). 
+
+Then, add `"MINT-CoT-7B": partial(Qwen2VLChat, model_path=<path_to_your_model>, min_pixels=1280 * 28 * 28, max_pixels=16384 * 28 * 28,)` in the ["qwen2vl_series" in config.py of VLMEvalKit](https://github.com/open-compass/VLMEvalKit/blob/e4e026375fffd6d7228f7d7625057dfddbfedb29/vlmeval/config.py#L870C1-L870C15)
 
 Finally, you can use the following command to perform the evaluation.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python run.py --data MathVista_MINI --model Qwen2-VL-7B-Instruct --verbose
+export LMUData="evaluation/LMUData" # Notice 2
+CUDA_VISIBLE_DEVICES=0 python run.py --data MathVista_MINI --model MINT-CoT-7B --verbose
 ```
+
+#### Notice:
+1. Please use v0.2 of VLMEvalKit.
+2. As our paper targets specifically mathematical problems, we extract the mathematical subsets (FunctionQA, Geometry3K, GeoQA+, GEOS, and UniGeo) from MathVista_MINI. You can also evaluate with the whole Mathvista_MINI and extract the mathematical subsets by yourself.
 
 
 
