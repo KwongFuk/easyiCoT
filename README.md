@@ -84,13 +84,13 @@ unzip ./data/images.zip -d ./LLaMA-Factory/data/
 
 ```bash
 cd LLaMA-Factory
-DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/train_full/mint-cot/qwen2vl_7b_full_sft_text_only.yaml
+DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/mint-cot/qwen2vl_7b_full_sft_text_only.yaml
 ```
 
 #### Stage 2: Interleaved CoT SFT.
 
 ```bash
-DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/train_full/mint-cot/qwen2vl_7b_full_sft_interleaved.yaml
+DISABLE_VERSION_CHECK=1 llamafactory-cli train examples/mint-cot/qwen2vl_7b_full_sft_interleaved.yaml
 ```
 
 #### Stage 3: Interleaved CoT RL.
