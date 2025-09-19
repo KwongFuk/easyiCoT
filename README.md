@@ -1,4 +1,4 @@
-# **🔥MINT-CoT:** Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning
+# **🌟🔥 [NeurIPS 2025] MINT-CoT:** Enabling Interleaved Visual Tokens in Mathematical Chain-of-Thought Reasoning
 
 Official repository for the paper "[MINT-CoT: Enabling Interleaved Visual Tokens in
 Mathematical Chain-of-Thought Reasoning](https://arxiv.org/abs/2506.05331)".
@@ -7,6 +7,7 @@ Mathematical Chain-of-Thought Reasoning](https://arxiv.org/abs/2506.05331)".
 
 ## 💥 News
 
+- **[2025.09.19]** MINT-CoT has been accepted by NeurIPS 2025! 🎉🎉
 - **[2025.06.06]** We release the [arxiv paper](https://arxiv.org/abs/2506.05331) and the code. 🔥
 
   
